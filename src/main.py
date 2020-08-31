@@ -10,9 +10,9 @@ def main():
   passwd = raw_input("Please enter your password")
 
   add_user = ("INSERT INTO user "
- "(id, username, password) VALUES (1, " + username + ", " + passwd + ")")
+  "(id, username, password) VALUES (%s, %s, %s)")
 
-  mycursor.execute(add_user)
+  mycursor.execute(add_user,(1, username, passwd))
 
   mydb.commit()
   mycursor.close()
