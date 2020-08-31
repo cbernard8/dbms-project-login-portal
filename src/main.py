@@ -6,8 +6,8 @@ def main():
 
   mycursor = mydb.cursor()
 
-  username = raw_input("Please enter your username")
-  passwd = raw_input("Please enter your password")
+  username = raw_input("Please enter your username: ")
+  passwd = raw_input("Please enter your password: ")
 
   add_user = ("INSERT INTO user "
   "(id, username, password) VALUES (%s, %s, %s)")
