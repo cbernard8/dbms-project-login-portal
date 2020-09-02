@@ -1,6 +1,9 @@
+import sys
 import mysql.connector
+import user_functions
 
-def main():
+
+def main(argc, argv):
   mydb = mysql.connector.connect(host="localhost", user="root",
   passwd="password", database="userlogin")
 
@@ -9,10 +12,10 @@ def main():
   username = raw_input("Please enter your username: ")
   passwd = raw_input("Please enter your password: ")
 
-  add_user = ("INSERT INTO user "
-  "(username, password) VALUES (%s, %s)")
+  user_functions.create_new_user(username, passwd, mycursor, mydb)
 
-  mycursor.execute(add_user,(username, passwd))
+  if argc == 2 and argv[1] == "-d":
+    user_functions.delete_user(username, passwd, mycursor, mydb)
 
   mydb.commit()
   mycursor.close()
@@ -20,4 +23,4 @@ def main():
 
 
 if __name__ == "__main__":
-  main()
+  main(len(sys.argv), sys.argv)
