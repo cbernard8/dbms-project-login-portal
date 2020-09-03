@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <script src="js/send_request.js"></script>
+  </head>
 
-  <form>
-    <label>Username:</label><br>
-    <input type="text"><br>
-    <label>Password:</label><br>
-    <input type="text"><br>
+  <body>
+    <p>Create an account below by choosing a username and password.</p>
 
-  </form>
+    <form id="form1">
+      <label>Username:</label><br>
+      <input type="text"><br>
+      <label>Password:</label><br>
+      <input type="text"><br>
+      <input type="button" onclick="sendRequest()" value="Submit">
 
+    </form>
+  </body>
 
 
 </html>
